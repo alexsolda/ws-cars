@@ -1,7 +1,8 @@
 import "./styles/index.css";
+import HomeTemplate from "./templates/Home";
 
 function App() {
-  return <div className="bg-zinc-900 min-h-screen">Hello world</div>;
+  return <HomeTemplate />;
 }
 
 export default App;
