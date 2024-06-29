@@ -6,7 +6,14 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        userView: '80rem'
+      },
+      width: {
+        userView: '80rem'
+      },
+    },
   },
   darkMode: "class",
   plugins: [],
