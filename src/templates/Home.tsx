@@ -6,7 +6,11 @@ import ModalContainer from "../components/ModalContainer";
 import { useDisclosure } from "@nextui-org/react";
 import NewCarForm from "./NewCarForm";
 import GroupedTable from "../components/GroupedTable";
-import { formatPascalCase, formatPrice } from "../utils/formatters";
+import {
+  formatPascalCase,
+  formatPrice,
+  formatTimestampToDateUI,
+} from "../utils/formatters";
 import { useCarsByBrand } from "../stores/Car";
 
 const HomeTemplate = (): ReactElement => {
@@ -17,13 +21,15 @@ const HomeTemplate = (): ReactElement => {
   const monetaryPrice = (price: number): string => formatPrice(price);
   const pascalCase = (text: string): string => formatPascalCase(text);
   const upperCase = (text: string): string => text.toUpperCase();
+  const dateUI = (timestamp: number): string =>
+    formatTimestampToDateUI(timestamp);
 
   return (
     <>
       <div className="bg-zinc-950 min-h-screen">
         <Header />
-        <ContainerWrapper className="mt-10 flex flex-col items-cnter justify-center gap-6">
-          <div>
+        <ContainerWrapper className="mt-10 pb-10 flex flex-col items-cnter justify-center gap-6">
+          <div className="flex justify-end">
             <Button title="Adicionar" onClick={() => onOpen()} />
           </div>
           <GroupedTable
@@ -40,6 +46,11 @@ const HomeTemplate = (): ReactElement => {
               { header: "Portas", accessor: "num_portas" },
               { header: "Cor", accessor: "cor", render: pascalCase },
               { header: "Valor", accessor: "valor", render: monetaryPrice },
+              {
+                header: "Data de cadastro",
+                accessor: "timestamp_cadastro",
+                render: dateUI,
+              },
             ]}
             renderGroupHeader={(brand) => (
               <p className="text-white font-bold bg-amber-700 text-center py-1">
