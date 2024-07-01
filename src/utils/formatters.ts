@@ -8,3 +8,11 @@ export const formatPrice = (value: number): string => {
       currency: 'BRL',
     }).format(value);
   };
+
+  export const formatPascalCase = (value: string) => {
+    return value
+      ?.toLowerCase()
+      ?.split(' ')
+      ?.map((part) => part.replace(/^\D/g, (l) => l.toUpperCase()))
+      ?.join(' ');
+  };

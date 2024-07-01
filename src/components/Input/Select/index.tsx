@@ -1,13 +1,18 @@
 import { ReactElement } from "react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-type IInputProps<T extends FieldValues> = {
+export type ISelectOption = {
+  value: string;
+  label: string;
+};
+
+type ISelectProps<T extends FieldValues> = {
   label: string;
   name: Path<T>;
   placeholder?: string;
   register: UseFormRegister<T>;
   error?: string;
-  type?: string;
+  options: ISelectOption[];
 };
 
 const Input = <T extends FieldValues>({
@@ -15,20 +20,25 @@ const Input = <T extends FieldValues>({
   name,
   placeholder = "",
   register,
-  type = "text",
+  options,
   error,
-}: IInputProps<T>): ReactElement => {
+}: ISelectProps<T>): ReactElement => {
   return (
     <div className="mb-2 relative flex flex-col gap-1 text-white w-full">
       <label className="text-sm">{label}</label>
-      <input
-        type={type}
+      <select
         className={`p-2 border-b-2 text-zinc-300 ${
           error ? "border-b-red-400" : "border-b-amber-700"
         } outline-none bg-transparent`}
-        placeholder={placeholder}
         {...register(name)}
-      />
+      >
+        {placeholder && <option value="">{placeholder}</option>}
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       <p
         className={`absolute bottom-[-20px] text-red-400 ${
           error ? "opacity-1" : "opacity-0"

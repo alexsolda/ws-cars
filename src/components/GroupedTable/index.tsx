@@ -7,6 +7,8 @@ type IGroupedTableProps<T> = {
   groupBy: keyof T;
   columns: Column<T>[];
   renderGroupHeader: (groupKey: string) => React.ReactNode;
+  variant?: string;
+  textColor?: string;
 };
 
 const GroupedTable = <T,>({
@@ -14,13 +16,15 @@ const GroupedTable = <T,>({
   groupBy,
   columns,
   renderGroupHeader,
+  variant = "amber-700",
+  textColor = "white",
 }: IGroupedTableProps<T>) => {
   const groupedItems = groupItemsByKey(items, groupBy);
 
   return (
     <table>
-      <thead className="border-t-[1px] border-amber-700">
-        <tr className="text-white">
+      <thead className={`border-t-[1px] border-${variant}`}>
+        <tr className={`text-${textColor}`}>
           {columns.map((column) => (
             <th className="py-3" key={String(column.accessor)}>
               {column.header}
@@ -32,7 +36,7 @@ const GroupedTable = <T,>({
         {Object.entries(groupedItems).map(([groupKey, groupItems]) => (
           <React.Fragment key={groupKey}>
             <tr>
-              <td className="text-white" colSpan={columns.length}>
+              <td className={`text-${textColor}`} colSpan={columns.length}>
                 {renderGroupHeader(groupKey)}
               </td>
             </tr>
@@ -41,7 +45,7 @@ const GroupedTable = <T,>({
                 {columns.map((column) => (
                   <td
                     key={String(column.accessor)}
-                    className="text-white text-center py-1"
+                    className={`text-${textColor} text-center py-3`}
                   >
                     {column.render
                       ? column.render(item[column.accessor])
