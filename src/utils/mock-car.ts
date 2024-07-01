@@ -1,3 +1,4 @@
+import { ISelectOption } from "../components/Input/Select";
 import { ICarData } from "../types/car";
 
 export const mockCar: ICarData = {"cars": 
@@ -46,3 +47,57 @@ export const mockCar: ICarData = {"cars":
     ]
 
  }
+
+ export const mockBrand: ISelectOption[] = [
+     {
+         value: 'chevrolet',
+         label: 'Chevrolet'
+     },
+     {
+         value: 'fiat',
+         label: 'Fiat'
+     },
+     {
+         value: 'ford',
+         label: 'Ford'
+     },
+     {
+         value: 'hyundai',
+         label: 'Hyundai'
+     },
+     {
+         value: 'peugeot',
+         label: 'Peugeot'
+     },
+     {
+         value: 'renault',
+         label: 'Renault'
+     },
+    {
+        value: 'toyota',
+        label: 'Toyota'
+    },
+    {
+        value: 'volkswagen',
+        label: 'Volkswagen'
+    }
+ ]
+
+ export const mockFuel: ISelectOption[] = [
+    {
+        value: 'diesel',
+        label: 'Diesel'
+    },
+    {
+        value: 'etanol',
+        label: 'Etanol'
+    },
+    {
+        value: 'flex',
+        label: 'Flex'
+    },
+    {
+        value: 'gasolina',
+        label: 'Gasolina'
+    },
+ ]
