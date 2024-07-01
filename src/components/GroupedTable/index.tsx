@@ -22,42 +22,44 @@ const GroupedTable = <T,>({
   const groupedItems = groupItemsByKey(items, groupBy);
 
   return (
-    <table>
-      <thead className={`border-t-[1px] border-${variant}`}>
-        <tr className={`text-${textColor}`}>
-          {columns.map((column) => (
-            <th className="py-3" key={String(column.accessor)}>
-              {column.header}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {Object.entries(groupedItems).map(([groupKey, groupItems]) => (
-          <React.Fragment key={groupKey}>
-            <tr>
-              <td className={`text-${textColor}`} colSpan={columns.length}>
-                {renderGroupHeader(groupKey)}
-              </td>
-            </tr>
-            {groupItems.map((item, index) => (
-              <tr key={index}>
-                {columns.map((column) => (
-                  <td
-                    key={String(column.accessor)}
-                    className={`text-${textColor} text-center py-3`}
-                  >
-                    {column.render
-                      ? column.render(item[column.accessor])
-                      : String(item[column.accessor])}
-                  </td>
-                ))}
-              </tr>
+    <div className="w-full overflow-x-scroll">
+      <table className="w-full min-w-[800px]">
+        <thead className={`border-t-[1px] border-${variant}`}>
+          <tr className={`text-${textColor}`}>
+            {columns.map((column) => (
+              <th className="py-3" key={String(column.accessor)}>
+                {column.header}
+              </th>
             ))}
-          </React.Fragment>
-        ))}
-      </tbody>
-    </table>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(groupedItems).map(([groupKey, groupItems]) => (
+            <React.Fragment key={groupKey}>
+              <tr>
+                <td className={`text-${textColor}`} colSpan={columns.length}>
+                  {renderGroupHeader(groupKey)}
+                </td>
+              </tr>
+              {groupItems.map((item, index) => (
+                <tr key={index}>
+                  {columns.map((column) => (
+                    <td
+                      key={String(column.accessor)}
+                      className={`text-${textColor} text-center py-3`}
+                    >
+                      {column.render
+                        ? column.render(item[column.accessor])
+                        : String(item[column.accessor])}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

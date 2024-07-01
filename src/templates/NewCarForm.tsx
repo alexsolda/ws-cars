@@ -83,7 +83,7 @@ const NewCarForm = ({ closeForm }: INewCarFormProps): ReactElement => {
       className="flex flex-col gap-6"
       onSubmit={handleSubmit(handleAddNewCar)}
     >
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap md:flex-nowrap">
         <Input
           label="Modelo"
           name="name"
@@ -99,7 +99,7 @@ const NewCarForm = ({ closeForm }: INewCarFormProps): ReactElement => {
           error={errors.brand?.message}
         />
       </div>
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap md:flex-nowrap">
         <Select
           label="Combustível"
           placeholder="Combustível"
@@ -115,7 +115,7 @@ const NewCarForm = ({ closeForm }: INewCarFormProps): ReactElement => {
           error={errors.doors?.message}
         />
       </div>
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap md:flex-nowrap">
         <Input
           label="Cor"
           name="color"
