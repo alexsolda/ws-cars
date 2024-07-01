@@ -22,6 +22,7 @@ const ModalContainer = ({
       placement="center"
       size="3xl"
       isDismissable={false}
+      scrollBehavior="inside"
     >
       <ModalContent className="bg-zinc-900 rounded-md w-full">
         {title && (
