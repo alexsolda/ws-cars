@@ -6,7 +6,7 @@ export type ISelectOption = {
   label: string;
 };
 
-type ISelectProps<T extends FieldValues> = {
+export type ISelectProps<T extends FieldValues> = {
   label: string;
   name: Path<T>;
   placeholder?: string;
