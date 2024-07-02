@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-type IInputProps<T extends FieldValues> = {
+export type IInputProps<T extends FieldValues> = {
   label: string;
   name: Path<T>;
   placeholder?: string;

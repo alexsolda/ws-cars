@@ -52,11 +52,6 @@ const HomeTemplate = (): ReactElement => {
                 render: dateUI,
               },
             ]}
-            renderGroupHeader={(brand) => (
-              <p className="text-white font-bold bg-amber-700 text-center py-1">
-                {brand.toUpperCase()}
-              </p>
-            )}
           />
         </ContainerWrapper>
       </div>

@@ -1,0 +1,11 @@
+import{j as e}from"./jsx-runtime-QvZ8i92b.js";import{u as I}from"./index.esm-QLZENO-u.js";import"./index-uubelm5h.js";const c=({label:a,name:n,placeholder:x="",register:f,type:b="text",error:s})=>e.jsxs("div",{className:"mb-2 relative flex flex-col gap-1 text-white w-full",children:[e.jsx("label",{className:"text-sm",children:a}),e.jsx("input",{type:b,className:`p-2 border-b-2 text-zinc-300 ${s?"border-b-red-400":"border-b-amber-700"} outline-none bg-transparent`,placeholder:x,...f(n)}),e.jsx("p",{className:`absolute bottom-[-20px] text-red-400 ${s?"opacity-1":"opacity-0"}`,children:s||"erro"})]}),d=c;c.__docgenInfo={description:"",methods:[],displayName:"Input",props:{label:{required:!0,tsType:{name:"string"},description:""},name:{required:!0,tsType:{name:"Path",elements:[{name:"T"}],raw:"Path<T>"},description:""},placeholder:{required:!1,tsType:{name:"string"},description:"",defaultValue:{value:'""',computed:!1}},register:{required:!0,tsType:{name:"UseFormRegister",elements:[{name:"T"}],raw:"UseFormRegister<T>"},description:""},error:{required:!1,tsType:{name:"string"},description:""},type:{required:!1,tsType:{name:"string"},description:"",defaultValue:{value:'"text"',computed:!1}}}};const N={title:"Components/Input",component:d,tags:["autodocs"]},g=a=>{const{register:n}=I();return e.jsx(d,{...a,register:n})},r=g.bind({});r.args={label:"Nome",name:"name",placeholder:"Nome...",error:""};const t=g.bind({});t.args={label:"Nome",name:"name",placeholder:"Nome...",error:"Digite o seu nome, por favor!"};var o,p,i;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`args => {
+  const {
+    register
+  } = useForm<ExampleFormValues>();
+  return <Input {...args} register={register} />;
+}`,...(i=(p=r.parameters)==null?void 0:p.docs)==null?void 0:i.source}}};var m,l,u;t.parameters={...t.parameters,docs:{...(m=t.parameters)==null?void 0:m.docs,source:{originalSource:`args => {
+  const {
+    register
+  } = useForm<ExampleFormValues>();
+  return <Input {...args} register={register} />;
+}`,...(u=(l=t.parameters)==null?void 0:l.docs)==null?void 0:u.source}}};const j=["DefaultInput","DefaultInputError"];export{r as DefaultInput,t as DefaultInputError,j as __namedExportsOrder,N as default};
