@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && yarn build:css",
+    "build": "tsc -b && vite build",
     "build:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/styles.css",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
