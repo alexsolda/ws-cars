@@ -7,7 +7,7 @@
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/alexsolda/ws-cars">
   
-  <a href="https://github.com/alexsolda/ws-cars/commits/main">
+  <a href="https://github.com/alexsolda/ws-cars/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/alexsolda/ws-cars">
   </a>
   
